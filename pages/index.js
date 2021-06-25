@@ -23,11 +23,6 @@ export default function Home() {
             <h3>Cookies &rarr;</h3>
             <p>Controle de aceite para as as regras de cookies do cassie</p>
           </a>
-
-          <a href="/api/cursos" className={styles.card}>
-            <h3>Cursos &rarr;</h3>
-            <p>Aprenda com o Portugol Studio</p>
-          </a>
         </div>
       </main>
 
