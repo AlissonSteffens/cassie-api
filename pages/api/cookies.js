@@ -30,6 +30,7 @@ var schema = {
 };
 
 module.exports = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   const db = await connectToDatabase(process.env.MONGODB_URI)
   const collection = await db.collection('cookies')
   const key = await db.collection('keys')
