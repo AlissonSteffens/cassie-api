@@ -30,11 +30,17 @@ var schema = {
 };
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  
   const db = await connectToDatabase(process.env.MONGODB_URI)
   const collection = await db.collection('cookies')
   const key = await db.collection('keys')
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  
   switch (req.method) {
     case 'GET':
       key.find({}).toArray().then(result => {
@@ -71,7 +77,7 @@ module.exports = async (req, res) => {
       const data = req.body
       data.extIp = requestIp.getClientIp(req)
       data.time = Date.now()
-      if(data.read){
+      if (data.read) {
         data.read = Boolean(data.read)
       }
       let validation = validate(data, schema)
@@ -81,7 +87,7 @@ module.exports = async (req, res) => {
             res.status(200).json(r)
           })
         })
-      }else{
+      } else {
         res.status(400).json(validation.errors)
       }
 
