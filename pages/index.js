@@ -8,16 +8,13 @@ export default function Home() {
         <title>Cassie API</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Essa é a API do <a href="https://www.cassiengine.com/">Cassie</a>
         </h1>
-
         <p className={styles.description}>
           Como o Cassie não utiliza diretamente nenhuma conexão com banco de dados, esta API provê a ele os serviços necessários de armazenamento
         </p>
-
         <div className={styles.grid}>
           <a href="/api/cookies" className={styles.card}>
             <h3>Cookies &rarr;</h3>
@@ -25,7 +22,6 @@ export default function Home() {
           </a>
         </div>
       </main>
-
       <footer className={styles.footer}>
         <a
           href="https://www.cassiengine.com/"
